@@ -19,8 +19,11 @@ RATIO = 0.8
 
 class Align():
 
-    def __init__(self, source_path, target_path,
+    # def __init__(self, source_path, target_path,
+    #              K=3, threshold=1):
+    def __init__(self, source, target,
                  K=3, threshold=1):
+
         ''' __INIT__
 
             Initialize the instance.
@@ -36,29 +39,31 @@ class Align():
 
         '''
 
-        self.source_path = source_path
-        self.target_path = target_path
+        # self.source_path = source_path
+        # self.target_path = target_path
+        self.source = source
+        self.target = target
         self.K = K
         self.threshold = threshold
 
-    def read_image(self, path, mode=1):
-        ''' READ_IMAGE
-
-            Load image from file path.
-
-            Input arguments:
-
-            - path : the image to be read
-            - mode : 1 for reading color image, 0 for grayscale image
-            default is 1
-
-            Output:
-
-            - the image to be processed
-
-        '''
-
-        return cv2.imread(path, mode)
+    # def read_image(self, path, mode=1):
+    #     ''' READ_IMAGE
+    #
+    #         Load image from file path.
+    #
+    #         Input arguments:
+    #
+    #         - path : the image to be read
+    #         - mode : 1 for reading color image, 0 for grayscale image
+    #         default is 1
+    #
+    #         Output:
+    #
+    #         - the image to be processed
+    #
+    #     '''
+    #
+    #     return cv2.imread(path, mode)
 
     def extract_SIFT(self, img):
         ''' EXTRACT_SIFT
@@ -203,8 +208,8 @@ class Align():
         '''
 
         # Load source image and target image
-        img_source = self.read_image(self.source_path)
-        img_target = self.read_image(self.target_path)
+        img_source = self.source
+        img_target = self.target
 
         # Extract key points and SIFT descriptors from
         # source image and target image respectively

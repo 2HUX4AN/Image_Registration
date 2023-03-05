@@ -12,16 +12,18 @@ if __name__ == '__main__':
     # path = '/content/drive/Othercomputers/惠普暗影精灵/华理(new)/组会实验/scalarFlow_dataset/raymarching/big_dataset/test/data/'
 
     total_time_start = time.time()
-    for i in range(5):
+    for i in range(50):
 
         # source_path = 'Images/mona_source.png'
         source_path = '{}_img2_all.png'.format(img_num + i)
         # target_path = 'Images/mona_target.jpg'
         target_path = '{}_img1.png'.format(img_num + i)
-
+        source_img = cv2.imread(path+source_path, 1)
+        target_img = cv2.imread(path+target_path, 1)
         time_start = time.time()
 
-        m_img = img_regist(path+source_path, path+target_path)
+        m_img = img_regist(source_img, target_img)
+        # print(m_img.shape)
 
         time_end = time.time()
         print('time cost', time_end - time_start, 's')
