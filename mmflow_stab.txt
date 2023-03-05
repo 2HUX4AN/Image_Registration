@@ -1,0 +1,8 @@
+/content/mmflow/mmflow/datasets/pipelines/loading.py
+
+from .image_registration import img_regist
+70行
+
+        img2_old = mmcv.imfrombytes(
+            img2_bytes, flag=self.color_type, backend=self.imdecode_backend)
+        img2 = img_regist(img2_old, img1)

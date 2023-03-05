@@ -23,7 +23,6 @@ if __name__ == '__main__':
         time_start = time.time()
 
         m_img = img_regist(source_img, target_img)
-        # print(m_img.shape)
 
         time_end = time.time()
         print('time cost', time_end - time_start, 's')
